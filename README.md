@@ -1,3 +1,5 @@
+# Jenkins ![Test Image 4](https://spacelift.io/_next/image?url=https%3A%2F%2Fspacelift.io%2Fwp-content%2Fuploads%2F2024%2F07%2Fjenkins-agents.png&w=3840&q=75)
+
 In Jenkins, the **Master-Slave** architecture (now more commonly called **Controller-Agent**) is used to distribute build and deployment work across multiple machines.
 
 > **Note:** The older terms *Master* and *Slave* are still widely used in older documentation and interviews, but Jenkins now officially uses **Controller** and **Agent**.

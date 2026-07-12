@@ -1,8 +1,8 @@
 sudo apt update && apt install -y unzip jq net-tools
 apt install openjdk-21-jdk -y
 apt install maven -y && curl https://get.docker.com | bash
-useradd -G docker adminAnkit
-usermod -aG docker adminAnkit
+useradd -G docker adminXXXXX
+usermod -aG docker adminXXXXX
 
 # aws cli install
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
@@ -118,20 +118,20 @@ Then update the SSL certificate following below.
 snap install --classic certbot
 
 certbot certonly --manual --preferred-challenges=dns --key-type rsa \
-    --email ankit.bhange123@gmail.com --server https://acme-v02.api.letsencrypt.org/directory \
-    --agree-tos -d "*.komaldevops.xyz"
+    --email XXXXX.XXXXX123@gmail.com --server https://acme-v02.api.letsencrypt.org/directory \
+    --agree-tos -d "*.XXXXXdevops.xyz"
 
-#get into the  /etc/letsencrypt/live/komaldevops.xyz/ Then run below, Because it needs to pick the crts.
+#get into the  /etc/letsencrypt/live/XXXXXdevops.xyz/ Then run below, Because it needs to pick the crts.
 
 openssl pkcs12 -inkey privkey.pem -in cert.pem -export -out certificate.p12
 
-# password : Bhange@123
+# password : XXXXX@123
 
 #Now convert into JKS certificate,
 keytool -importkeystore -srckeystore certificate.p12 -srcstoretype pkcs12 \
     -destkeystore jenkinsserver.jks -deststoretype JKS
   
-# password : Bhange@123
+# password : XXXXX@123
 
 sudo cp jenkinsserver.jks /var/lib/jenkins/
 sudo chown jenkins:jenkins /var/lib/jenkins/jenkinsserver.jks
@@ -142,10 +142,10 @@ Environment="JENKINS_PORT=8080"
 Environment="JENKINS_PORT=8080"
 Environment="JENKINS_HTTPS_PORT=8443"
 Environment="JENKINS_HTTPS_KEYSTORE=/var/lib/jenkins/jenkinsserver.jks"
-Environment="JENKINS_HTTPS_KEYSTORE_PASSWORD=Bhange@123"
+Environment="JENKINS_HTTPS_KEYSTORE_PASSWORD=XXXXX@123"
 AmbientCapabilities=CAP_NET_BIND_SERVICE
 
-echo 'JENKINS_ARGS="$JENKINS_ARGS --httpsPort=8443 --httpPort=-1 --httpsPrivateKey=/etc/letsencrypt/live/komaldevops.xyz/privkey.pem --httpsCertificate=/etc/letsencrypt/live/komaldevops.xyz/fullchain.pem"' >>/etc/default/jenkins
+echo 'JENKINS_ARGS="$JENKINS_ARGS --httpsPort=8443 --httpPort=-1 --httpsPrivateKey=/etc/letsencrypt/live/XXXXXdevops.xyz/privkey.pem --httpsCertificate=/etc/letsencrypt/live/XXXXXdevops.xyz/fullchain.pem"' >>/etc/default/jenkins
 
 sudo usermod -aG docker jenkins
 sudo usermod -aG root jenkins
@@ -224,6 +224,9 @@ Step 5. Configure GitHub Webhooks
 Push your development code to a private GitHub repository.
 Navigate to Repository Settings > Webhooks > Add Webhook.
 Content Type: application/json
+
+http://jenkins.XXXXXdevops.xyz:8080/multibranch-webhook-trigger/invoke?token=webhooktoken
+
 URL: As per your Jenkins pipeline token.
 Add the webhook and authenticate it.
 

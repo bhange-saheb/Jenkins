@@ -1,12 +1,11 @@
 
 ---
 
-```markdown
+
 # Jenkins Administration: RBAC and Enterprise Backup Strategy
 
-![Jenkins](https://img.shields.io/badge/Jenkins-D24939?style=for-the-badge&logo=jenkins&logoColor=white)
-![AWS S3](https://img.shields.io/badge/Amazon_S3-569A31?style=for-the-badge&logo=amazons3&logoColor=white)
-![Security](https://img.shields.io/badge/Security-RBAC-blue?style=for-the-badge)
+![Jenkins]https://community.jenkins.io/t/only-agent-permissions-can-not-work-in-manage-roles-of-role-based-authorization-strategy/6795
+
 
 Comprehensive guide for implementing production-ready **Role-Based Access Control (RBAC)** and executing automated **Backup & Restore** strategies within an enterprise Jenkins environment.
 
@@ -168,4 +167,4 @@ sudo systemctl restart jenkins
 ```
 ***
 
-```
+

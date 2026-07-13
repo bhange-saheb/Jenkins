@@ -4,12 +4,12 @@
 
 # Jenkins Administration: RBAC and Enterprise Backup Strategy
 
-![Jenkins]https://community.jenkins.io/t/only-agent-permissions-can-not-work-in-manage-roles-of-role-based-authorization-strategy/6795
+![Jenkins](https://i.sstatic.net/txTPJ.jpg)
 
 
 Comprehensive guide for implementing production-ready **Role-Based Access Control (RBAC)** and executing automated **Backup & Restore** strategies within an enterprise Jenkins environment.
 
-![Architecture Diagram](https://github.com/user-attachments/assets/123cd71f-a1ff-4263-a77f-13d00818363e)
+![Architecture Diagram](https://scontent.fpnq16-1.fna.fbcdn.net/v/t39.99422-6/735810455_1318494620454152_5194729810697592252_n.png?stp=dst-jpg_tt6&cstp=mx600x400&ctp=s600x400&_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=zcR_7vfoJpEQ7kNvwESKsZo&_nc_oc=AdpyF6wcnNvypgM4gxHqz43OAKb0wKEJqE8hvbJEZDF_1ExWNgQsRbhatD-cKUNYuPI&_nc_zt=14&_nc_ht=scontent.fpnq16-1.fna&_nc_gid=-7w9dns87W4HfmSadEvvZA&_nc_ss=7b289&oh=00_AQA3H-5IJE-9XwRyzDWKwegtUk7njOw492Qe1y32_CLonw&oe=6A5AE16E)
 
 ---
 

@@ -2,7 +2,7 @@
 ---
 
 ```markdown
-# 🚀 Jenkins Administration: RBAC and Enterprise Backup Strategy
+# Jenkins Administration: RBAC and Enterprise Backup Strategy
 
 ![Jenkins](https://img.shields.io/badge/Jenkins-D24939?style=for-the-badge&logo=Jenkins&logoColor=white)
 ![AWS S3](https://img.shields.io/badge/Amazon_S3-569A31?style=for-the-badge&logo=amazons3&logoColor=white)
@@ -14,7 +14,7 @@ Comprehensive guide for implementing production-ready **Role-Based Access Contro
 
 ---
 
-## 🔐 1. Jenkins Role-Based Access Control (RBAC)
+## 1. Jenkins Role-Based Access Control (RBAC)
 
 ### Overview
 Enterprise Jenkins environments require strict governance. Implementing Role-Based Access Control (RBAC) ensures the **Principle of Least Privilege (PoLP)** by mapping users to specific granular roles (Global, Item, and Agent levels) rather than granting blanket administrative rights.
@@ -60,7 +60,7 @@ Enterprise Jenkins environments require strict governance. Implementing Role-Bas
 
 ---
 
-## 💾 2. Production Backup & Restore Strategy
+## 2. Production Backup & Restore Strategy
 
 ### Overview
 A Jenkins master failure shouldn't halt your CI/CD velocity. This strategy implements localized scheduling via `ThinBackup` paired with an offsite, durable object storage lifecycle policy (Amazon S3 / Azure Blob) to guarantee business continuity.
@@ -102,7 +102,7 @@ ls -la /var/jenkins-backups
 
 ---
 
-## ☁️ 3. Production Hardening: Offsite Cloud Redundancy
+##  3. Production Hardening: Offsite Cloud Redundancy
 
 To protect against critical infrastructure failures or data corruption, local backups must be replicated to decoupled cloud storage.
 

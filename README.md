@@ -238,7 +238,6 @@ A complete, battle-tested blueprint for provisioning a multi-branch, multi-node 
 ##  Architecture Overview
 
 
-```
 
 ```
                     +----------------------------+
@@ -291,7 +290,7 @@ v                            v                            v
 
 ---
 
-## 🚀 Phase 1: Base AMI Provisioning
+### Phase 1: Base AMI Provisioning
 
 Run the following setup script on a baseline Ubuntu instance. This environment serves as the base image for both the Jenkins Controller and Worker Agents.
 
@@ -304,7 +303,7 @@ sudo apt update && sudo apt install -y unzip jq net-tools software-properties-co
 # Install Java 21, Maven, and Docker Engine
 sudo apt install openjdk-21-jdk -y
 sudo apt install maven -y
-curl -fsSL [https://get.docker.com](https://get.docker.com) | bash
+curl -fsSL https://get.docker.com | bash
 
 # Create administrative docker user
 sudo useradd -G docker adminAnkit
@@ -316,7 +315,7 @@ sudo usermod -aG docker adminAnkit
 
 ```bash
 # Install AWS CLI v2
-curl "[https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip](https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip)" -o "awscliv2.zip"
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
 sudo ./aws/install
 rm -rf awscliv2.zip aws/
@@ -325,12 +324,12 @@ rm -rf awscliv2.zip aws/
 cd /usr/local/bin
 
 # Terraform
-sudo wget [https://releases.hashicorp.com/terraform/1.15.8/terraform_1.15.8_linux_amd64.zip](https://releases.hashicorp.com/terraform/1.15.8/terraform_1.15.8_linux_amd64.zip)
+sudo wget https://releases.hashicorp.com/terraform/1.15.8/terraform_1.15.8_linux_amd64.zip
 sudo unzip terraform_1.15.8_linux_amd64.zip
 sudo rm terraform_1.15.8_linux_amd64.zip
 
 # Packer
-sudo wget [https://releases.hashicorp.com/packer/1.15.4/packer_1.15.4_linux_amd64.zip](https://releases.hashicorp.com/packer/1.15.4/packer_1.15.4_linux_amd64.zip)
+sudo wget https://releases.hashicorp.com/packer/1.15.4/packer_1.15.4_linux_amd64.zip
 sudo unzip packer_1.15.4_linux_amd64.zip
 sudo rm packer_1.15.4_linux_amd64.zip
 
@@ -364,7 +363,7 @@ echo 'ansibleadmin ALL=(ALL) NOPASSWD: ALL' | sudo tee -a /etc/sudoers
 
 # Install Aqua Security Trivy (Vulnerability Scanner)
 cd /tmp
-wget [https://github.com/aquasecurity/trivy/releases/download/v0.72.0/trivy_0.72.0_Linux-64bit.deb](https://github.com/aquasecurity/trivy/releases/download/v0.72.0/trivy_0.72.0_Linux-64bit.deb)
+wget https://github.com/aquasecurity/trivy/releases/download/v0.72.0/trivy_0.72.0_Linux-64bit.deb
 sudo dpkg -i trivy_0.72.0_Linux-64bit.deb
 trivy --version
 
@@ -383,8 +382,9 @@ Launch a new instance using the AMI created in Phase 1. Ensure DNS A-Records are
 
 ```bash
 # Add Jenkins GPG keyring and repository
-sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc [https://pkg.jenkins.io/debian-stable/jenkins.io-2026.key](https://pkg.jenkins.io/debian-stable/jenkins.io-2026.key)
-echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc] [https://pkg.jenkins.io/debian-stable](https://pkg.jenkins.io/debian-stable) binary/" | sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc https://pkg.jenkins.io/debian-stable/jenkins.io-2026.key
+echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/" | \
+sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
 
 sudo apt update
 sudo apt install jenkins -y
@@ -419,7 +419,7 @@ sudo snap install --classic certbot
 # Generate Wildcard SSL using DNS Challenge
 sudo certbot certonly --manual --preferred-challenges=dns --key-type rsa \
     --email your-email@domain.com \
-    --server [https://acme-v02.api.letsencrypt.org/directory](https://acme-v02.api.letsencrypt.org/directory) \
+    --server https://acme-v02.api.letsencrypt.org/directory \
     --agree-tos -d "*.yourdomain.com"
 
 ```
